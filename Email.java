@@ -9,6 +9,8 @@ public class Email {
     private String lastName;
     private String password;
     private int defaultpassword=8;
+    private String email;
+    private String companySufix="awscompany.com";
     private String department;
     private int mailboxCapasity;
     private String alternateEmail;
@@ -25,7 +27,10 @@ public class Email {
        
         // set password
         this.password=randomPassword(defaultpassword);
-        System.out.println(password);
+      //  System.out.println(password);
+
+        //set Email
+        this.email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department+"."+companySufix;
 
     }
 
@@ -94,11 +99,41 @@ public class Email {
     }
 
     //set the mailbox mailboxCapasity
+    public void setMailBoxCapasity(int capasity){
+        this.mailboxCapasity=capasity;
+
+    }
+
 
     //set the alternateEmail
+    public void setAlternateEmail(String altEmail){
+        this.alternateEmail=altEmail;
+
+    }
 
     //change the password
+    public void changePassword(String password){
+        this.password=password;
 
+    }
 
+    //get mailboxCapasity
+    public int getMailBoxCapasity(){
+        return mailboxCapasity;
+    }
+
+    //get alternative email address
+    public String getAlternativeEmail(){
+        return alternateEmail;
+    }
+
+    //get password 
+    public String getPassword(){
+        return password;
+    }
+
+    public String showInfo(){
+        return "DISPLAY NAME :"+firstName+" " +lastName + "\n" + "DEPARTMENT NAME :" +department  +"\n"+"EMAIL ADDRESS :"+email+"\n" +"MAILBOX CAPASITY :" + mailboxCapasity +"mb" +"\n" +"CURRENT PASSWORD :"+password;
+    }
     
 }
